@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/GoodsService" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/GoodsService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/GoodsService">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodByIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGoodPhotoById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodPhotoByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodPhotoByIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodKindById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodKindByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodKindByIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertFavShop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertFavShopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertFavShopResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFavShop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFavShopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteFavShopResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isFavShop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isFavShopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isFavShopResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoByUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoByUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoByUserIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertFavGood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertFavGoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertFavGoodResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFavGood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFavGoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteFavGoodResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isFavGood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isFavGoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isFavGoodResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="count" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteCartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isOnCart">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isOnCartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isOnCartResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertBookInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="count" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertBookInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertBookInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSomeGoodInfoByParam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSomeGoodInfoByParamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSomeGoodInfoByParamResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isSaleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodById" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodPhotoByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodPhotoById" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodPhotoByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodPhotoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodKindByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodKindById" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodKindByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodKindByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertFavShopSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertFavShop" />
+  </wsdl:message>
+  <wsdl:message name="InsertFavShopSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertFavShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFavShopSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFavShop" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFavShopSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFavShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="isFavShopSoapIn">
+    <wsdl:part name="parameters" element="tns:isFavShop" />
+  </wsdl:message>
+  <wsdl:message name="isFavShopSoapOut">
+    <wsdl:part name="parameters" element="tns:isFavShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoByUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfoByUserId" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoByUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertFavGoodSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertFavGood" />
+  </wsdl:message>
+  <wsdl:message name="InsertFavGoodSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertFavGoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFavGoodSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFavGood" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFavGoodSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFavGoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="isFavGoodSoapIn">
+    <wsdl:part name="parameters" element="tns:isFavGood" />
+  </wsdl:message>
+  <wsdl:message name="isFavGoodSoapOut">
+    <wsdl:part name="parameters" element="tns:isFavGoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCartSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCart" />
+  </wsdl:message>
+  <wsdl:message name="InsertCartSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCartSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCart" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCartSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="isOnCartSoapIn">
+    <wsdl:part name="parameters" element="tns:isOnCart" />
+  </wsdl:message>
+  <wsdl:message name="isOnCartSoapOut">
+    <wsdl:part name="parameters" element="tns:isOnCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertBookInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertBookInfo" />
+  </wsdl:message>
+  <wsdl:message name="InsertBookInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertBookInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSomeGoodInfoByParamSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSomeGoodInfoByParam" />
+  </wsdl:message>
+  <wsdl:message name="GetSomeGoodInfoByParamSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSomeGoodInfoByParamResponse" />
+  </wsdl:message>
+  <wsdl:message name="isSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:isSale" />
+  </wsdl:message>
+  <wsdl:message name="isSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:isSaleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GoodsServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodById">
+      <wsdl:input message="tns:GetGoodByIdSoapIn" />
+      <wsdl:output message="tns:GetGoodByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodPhotoById">
+      <wsdl:input message="tns:GetGoodPhotoByIdSoapIn" />
+      <wsdl:output message="tns:GetGoodPhotoByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodKindById">
+      <wsdl:input message="tns:GetGoodKindByIdSoapIn" />
+      <wsdl:output message="tns:GetGoodKindByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavShop">
+      <wsdl:input message="tns:InsertFavShopSoapIn" />
+      <wsdl:output message="tns:InsertFavShopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavShop">
+      <wsdl:input message="tns:DeleteFavShopSoapIn" />
+      <wsdl:output message="tns:DeleteFavShopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isFavShop">
+      <wsdl:input message="tns:isFavShopSoapIn" />
+      <wsdl:output message="tns:isFavShopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoByUserId">
+      <wsdl:input message="tns:GetUserInfoByUserIdSoapIn" />
+      <wsdl:output message="tns:GetUserInfoByUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavGood">
+      <wsdl:input message="tns:InsertFavGoodSoapIn" />
+      <wsdl:output message="tns:InsertFavGoodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavGood">
+      <wsdl:input message="tns:DeleteFavGoodSoapIn" />
+      <wsdl:output message="tns:DeleteFavGoodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isFavGood">
+      <wsdl:input message="tns:isFavGoodSoapIn" />
+      <wsdl:output message="tns:isFavGoodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCart">
+      <wsdl:input message="tns:InsertCartSoapIn" />
+      <wsdl:output message="tns:InsertCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCart">
+      <wsdl:input message="tns:DeleteCartSoapIn" />
+      <wsdl:output message="tns:DeleteCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isOnCart">
+      <wsdl:input message="tns:isOnCartSoapIn" />
+      <wsdl:output message="tns:isOnCartSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertBookInfo">
+      <wsdl:input message="tns:InsertBookInfoSoapIn" />
+      <wsdl:output message="tns:InsertBookInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSomeGoodInfoByParam">
+      <wsdl:input message="tns:GetSomeGoodInfoByParamSoapIn" />
+      <wsdl:output message="tns:GetSomeGoodInfoByParamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isSale">
+      <wsdl:input message="tns:isSaleSoapIn" />
+      <wsdl:output message="tns:isSaleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GoodsServiceSoap" type="tns:GoodsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodById">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/GetGoodById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodPhotoById">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/GetGoodPhotoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodKindById">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/GetGoodKindById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavShop">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/InsertFavShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavShop">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/DeleteFavShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFavShop">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/isFavShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoByUserId">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/GetUserInfoByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavGood">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/InsertFavGood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavGood">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/DeleteFavGood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFavGood">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/isFavGood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCart">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/InsertCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCart">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/DeleteCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isOnCart">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/isOnCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBookInfo">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/InsertBookInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSomeGoodInfoByParam">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/GetSomeGoodInfoByParam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isSale">
+      <soap:operation soapAction="http://tempuri.org/GoodsService/isSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GoodsServiceSoap12" type="tns:GoodsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodById">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/GetGoodById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodPhotoById">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/GetGoodPhotoById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodKindById">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/GetGoodKindById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavShop">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/InsertFavShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavShop">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/DeleteFavShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFavShop">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/isFavShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfoByUserId">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/GetUserInfoByUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavGood">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/InsertFavGood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavGood">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/DeleteFavGood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFavGood">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/isFavGood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCart">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/InsertCart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCart">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/DeleteCart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isOnCart">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/isOnCart" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertBookInfo">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/InsertBookInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSomeGoodInfoByParam">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/GetSomeGoodInfoByParam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isSale">
+      <soap12:operation soapAction="http://tempuri.org/GoodsService/isSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GoodsService">
+    <wsdl:port name="GoodsServiceSoap" binding="tns:GoodsServiceSoap">
+      <soap:address location="http://localhost:8003/GoodsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GoodsServiceSoap12" binding="tns:GoodsServiceSoap12">
+      <soap12:address location="http://localhost:8003/GoodsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/OrderService" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/OrderService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/OrderService">
+      <s:element name="GetAllBookInfoByCondition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="goodName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBookInfoByConditionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBookInfoByConditionResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateBookInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBookInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateBookInfoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodByShop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodByShopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodByShopResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodInfoByShop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodInfoByShopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodInfoByShopResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotGoodByShop">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotGoodByShopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotGoodByShopResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookTrendByGood">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="goodId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookTrendByGoodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookTrendByGoodResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleByCondition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="shopname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condition" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSaleByConditionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSaleByConditionResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllBookInfoByConditionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBookInfoByCondition" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBookInfoByConditionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBookInfoByConditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBookInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBookInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBookInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBookInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodByShopSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodByShop" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodByShopSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodByShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodInfoByShopSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodInfoByShop" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodInfoByShopSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodInfoByShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotGoodByShopSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotGoodByShop" />
+  </wsdl:message>
+  <wsdl:message name="GetHotGoodByShopSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotGoodByShopResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookTrendByGoodSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookTrendByGood" />
+  </wsdl:message>
+  <wsdl:message name="GetBookTrendByGoodSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookTrendByGoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleByConditionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSaleByCondition" />
+  </wsdl:message>
+  <wsdl:message name="GetSaleByConditionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSaleByConditionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OrderServiceSoap">
+    <wsdl:operation name="GetAllBookInfoByCondition">
+      <wsdl:input message="tns:GetAllBookInfoByConditionSoapIn" />
+      <wsdl:output message="tns:GetAllBookInfoByConditionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookInfo">
+      <wsdl:input message="tns:UpdateBookInfoSoapIn" />
+      <wsdl:output message="tns:UpdateBookInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodByShop">
+      <wsdl:input message="tns:GetGoodByShopSoapIn" />
+      <wsdl:output message="tns:GetGoodByShopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodInfoByShop">
+      <wsdl:input message="tns:GetGoodInfoByShopSoapIn" />
+      <wsdl:output message="tns:GetGoodInfoByShopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotGoodByShop">
+      <wsdl:input message="tns:GetHotGoodByShopSoapIn" />
+      <wsdl:output message="tns:GetHotGoodByShopSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookTrendByGood">
+      <wsdl:input message="tns:GetBookTrendByGoodSoapIn" />
+      <wsdl:output message="tns:GetBookTrendByGoodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleByCondition">
+      <wsdl:input message="tns:GetSaleByConditionSoapIn" />
+      <wsdl:output message="tns:GetSaleByConditionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderServiceSoap" type="tns:OrderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllBookInfoByCondition">
+      <soap:operation soapAction="http://tempuri.org/OrderService/GetAllBookInfoByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookInfo">
+      <soap:operation soapAction="http://tempuri.org/OrderService/UpdateBookInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodByShop">
+      <soap:operation soapAction="http://tempuri.org/OrderService/GetGoodByShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodInfoByShop">
+      <soap:operation soapAction="http://tempuri.org/OrderService/GetGoodInfoByShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotGoodByShop">
+      <soap:operation soapAction="http://tempuri.org/OrderService/GetHotGoodByShop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookTrendByGood">
+      <soap:operation soapAction="http://tempuri.org/OrderService/GetBookTrendByGood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleByCondition">
+      <soap:operation soapAction="http://tempuri.org/OrderService/GetSaleByCondition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderServiceSoap12" type="tns:OrderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllBookInfoByCondition">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/GetAllBookInfoByCondition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBookInfo">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/UpdateBookInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodByShop">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/GetGoodByShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodInfoByShop">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/GetGoodInfoByShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotGoodByShop">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/GetHotGoodByShop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookTrendByGood">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/GetBookTrendByGood" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSaleByCondition">
+      <soap12:operation soapAction="http://tempuri.org/OrderService/GetSaleByCondition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderService">
+    <wsdl:port name="OrderServiceSoap" binding="tns:OrderServiceSoap">
+      <soap:address location="http://localhost:8003/OrderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderServiceSoap12" binding="tns:OrderServiceSoap12">
+      <soap12:address location="http://localhost:8003/OrderService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

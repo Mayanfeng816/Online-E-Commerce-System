@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="WebApplication2.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="icon" href="img/1111.jfif" sizes="16x16"/>
+    <title>数码产品购物网</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .tablemaster{
+            background-image: url('img/6666.jpg'); 
+            /*background-image: linear-gradient(to top,rgba(169,193,237,0.8),rgba(255,255,255,0)), url('img/6666.jpg'); */
+            border: none;
+            width:100%; 
+            height: 100px;
+        }
+        .Menu1{
+            background:linear-gradient(-200deg,rgba(2,61,125,1),rgba(2,61,125,0.1));
+            border-radius:10px;
+            height:50px;
+            font-family:YouYuan,'幼圆',sans-serif;
+        }
+        .Menu{
+            background:rgba(227,197,235,0);
+            color:#fff;
+            height:30px;
+             font-weight:bold;
+             font-size:large;
+             border-radius:10px;
+             font-family:YouYuan,'幼圆',sans-serif;
+             text-align:center;
+        }
+        .subMenu{
+            background:linear-gradient(-200deg,rgba(169,193,237,0.5),rgba(2,61,125,1));
+            color:#fff;
+            height:30px;
+             font-weight:bold;
+             font-size:large;
+             font-family:YouYuan,'幼圆',sans-serif;
+             text-align:center;
+        }
+         .btnexit {
+             width:170px;
+             height:30px;
+             margin:3px auto 4px auto;
+             border:solid;
+             border-color:rgba(255,255,255,0.8);
+             border-width:thin;
+             background-color:rgba(2,61,125,0.7);
+             /*background:linear-gradient(-200deg,#e3c5eb,rgb(2,61,125));*/
+             color:#fff;
+             font-weight:bold;
+             cursor:pointer;
+             transition:0.5s;/*动画过渡*/
+             border-radius:20px;
+             font-family:YouYuan,'幼圆',sans-serif;
+
+         }
+         .btnexit:hover{
+             background-image: linear-gradient(-225deg,rgba(47,207,208,0.7),rgba(51,8,103,0.7));
+             background-position-x:-170px;
+         }
+         .font{
+             font-family:YouYuan,'幼圆',sans-serif;
+             
+         }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table class="tablemaster">
+            <tr>
+                <td style="text-align:left;">
+
+                    <asp:Label ID="Label1" runat="server" Text="Label" ForeColor="White" Font-Bold="true" CssClass="font"></asp:Label>
+                    
+                </td>
+                <td>
+                    <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" Width="100%" Height="30px" CssClass="Menu1" StaticEnableDefaultPopOutImage = false>
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle CssClass="Menu"/>
+                            <asp:MenuItemStyle CssClass="subMenu"/>
+                        </LevelMenuItemStyles>
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/GoodCondition.aspx" Text="商品管理&nbsp;&nbsp;&nbsp;" Value="商品管理" ></asp:MenuItem>
+                            
+                            <asp:MenuItem  Text="订单管理&nbsp;&nbsp;&nbsp;" Value="订单管理" NavigateUrl="~/OrderManager.aspx">
+
+                            </asp:MenuItem>
+
+                            <asp:MenuItem  Text="数据统计" Value="数据统计" NavigateUrl="~/DataStatistics.aspx">
+
+                            </asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+                <td style="text-align:right; font-weight:500;" class="font">
+                    <font size="6" color="white" ">数码产品购物网</font>
+                </td>
+                <td style="text-align:right;">
+                    <asp:Button ID="btnExit" runat="server" Text="退出" OnClick="btnExit_Click" CssClass="btnexit"/>
+                </td>
+            </tr>
+        </table>
+        
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
