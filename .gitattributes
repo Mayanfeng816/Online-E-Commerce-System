@@ -1,0 +1,5 @@
+*.aspx.cs linguist-language=CSS
+*.aspx liguist-language=HTML
+*.aspx.desiner.cs linguist-language=C#
+*.asmx.cs linguist-language=C#
+*.asmx linguist-language=SQL
